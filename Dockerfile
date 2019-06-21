@@ -1,4 +1,4 @@
-FROM php:7.3-alpine
+FROM php:7.3-fpm-alpine
 
 # Install dev dependencies
 RUN apk add --no-cache --virtual .build-deps \
@@ -77,3 +77,5 @@ RUN apk del -f .build-deps
 
 # Setup working directory
 WORKDIR /var/www
+
+CMD ["php-fpm"]
